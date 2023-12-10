@@ -1,0 +1,7 @@
+POTENTIAL REFACTOR:
+
+- TWO pages (1. writing your comment) (2. searching for general opinion on topic)
+  Try to make it just ONE page
+  Maybe a toggle switch to change the functionality of  button
+
+- 
