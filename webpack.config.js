@@ -5,8 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
@@ -18,6 +17,10 @@ module.exports = {
           presets: ['@babel/preset-env', '@babel/preset-react'],
         },
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   resolve: {
@@ -27,6 +30,9 @@ module.exports = {
     static: './public',
     hot: true,
     open: true,
+    proxy: {
+      '/': 'http://localhost:3000'
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
