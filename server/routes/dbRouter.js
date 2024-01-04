@@ -8,8 +8,8 @@ router.post('/add', keywordController.generateKeywords, dbController.addEntry, (
   return res.status(201).json('POST request successful');
 });
 
-router.post('/get', keywordController.generateKeywords, dbController.addEntry, (req, res) => {
-  return res.status(201).json('POST request successful');
+router.post('/get', keywordController.generateKeywords, dbController.getEntries, (req, res) => {
+  return res.status(201).json(res.locals.text);
 });
 
 module.exports = router;
