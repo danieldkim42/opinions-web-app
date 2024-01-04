@@ -11,10 +11,17 @@ function Search() {
    * step 3: display the results
    */
   async function onClickHandler() {
-    fetch('/db/get')
+    const inp = document.getElementById('search-input');
+    fetch('/db/get', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ "text": inp.value })
+    })
       .then(res => res.json())
       .then(res => {
-        console.log(res);
+        console.log('res:', res);
       })
       .catch(err => {
         console.log(err);
@@ -24,7 +31,7 @@ function Search() {
   return (
     <div>
       <h1>What are they thinking?</h1>
-      <input type="text" placeholder="Search" />
+      <input id="search-input" type="text" placeholder="Search" />
       <button onClick={onClickHandler}>Search</button>
     </div>
   );
