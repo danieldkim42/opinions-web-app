@@ -18,7 +18,7 @@ keywordController.generateKeywords = (req, res, next) => {
     return_changed_case:true,
     remove_duplicates: false
   });
-  console.log(extraction_result);
+  // console.log(extraction_result);
   res.locals.result = extraction_result;
   res.locals.keywords = {};
   
@@ -28,6 +28,7 @@ keywordController.generateKeywords = (req, res, next) => {
     }
     res.locals.keywords[res.locals.result[i]]++;
   }
+  // console.log('res.locals.keywords: ', res.locals.keywords);
   return next();
 };
 
